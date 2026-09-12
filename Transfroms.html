@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Diamond Gallery Assignment</title>
+
+    <style>
+        /* Body */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Main Gallery */
+        .gallery-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: #f5e4c3;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Diamond */
+        .diamond {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            overflow: hidden;
+            border-radius: 18px;
+            border: 4px solid #e2a85c;
+            box-sizing: border-box;
+
+            /* Diamond shape */
+            transform: rotate(45deg);
+
+            /* Animation */
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        /* Center Diamond */
+        .diamond.center-main {
+            width: 180px;
+            height: 180px;
+
+            top: 50%;
+            left: 50%;
+
+            margin-top: -90px;
+            margin-left: -90px;
+
+            z-index: 2;
+        }
+
+        /* Top Left */
+        .top-left {
+            top: 50px;
+            left: 90px;
+        }
+
+        /* Top Right */
+        .top-right {
+            top: 50px;
+            right: 90px;
+        }
+
+        /* Bottom Left */
+        .bottom-left {
+            bottom: 50px;
+            left: 90px;
+        }
+
+        /* Bottom Right */
+        .bottom-right {
+            bottom: 50px;
+            right: 90px;
+        }
+
+        /* Image Container */
+        .diamond-img {
+            width: 100%;
+            height: 100%;
+
+            /* Keep image upright */
+            transform: rotate(-45deg) scale(1.4);
+
+            transition: transform 0.3s ease;
+        }
+
+        /* Images */
+        .diamond-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Hover Effect */
+        .diamond:hover {
+            transform: rotate(45deg) scale(1.08);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+        }
+
+        /* Highlight Overlay */
+        .diamond::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(255, 255, 255, 0.2);
+
+            opacity: 0;
+
+            transition: opacity 0.3s ease;
+        }
+
+        /* Overlay on Hover */
+        .diamond:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery-container">
+
+        <!-- Top Left -->
+        <div class="diamond top-left">
+            <div class="diamond-img">
+                <img
+                    src="https://images.pexels.com/photos/31970812/pexels-photo-31970812.jpeg"
+                    alt="Food Item 1">
+            </div>
+        </div>
+
+        <!-- Top Right -->
+        <div class="diamond top-right">
+            <div class="diamond-img">
+                <img
+                    src="https://images.pexels.com/photos/36989884/pexels-photo-36989884.jpeg"
+                    alt="Food Item 2">
+            </div>
+        </div>
+
+        <!-- Center -->
+        <div class="diamond center-main">
+            <div class="diamond-img">
+                <img
+                    src="https://images.pexels.com/photos/11485207/pexels-photo-11485207.jpeg"
+                    alt="Center Food Display">
+            </div>
+        </div>
+
+        <!-- Bottom Left -->
+        <div class="diamond bottom-left">
+            <div class="diamond-img">
+                <img
+                    src="https://images.pexels.com/photos/9738983/pexels-photo-9738983.jpeg"
+                    alt="Food Item 4">
+            </div>
+        </div>
+
+        <!-- Bottom Right -->
+        <div class="diamond bottom-right">
+            <div class="diamond-img">
+                <img
+                    src="https://media.istockphoto.com/id/1363306527/photo/veg-biryani.jpg?b=1&s=612x612&w=0&k=20&c=3Nl0Ry8b8LdQeolrLFV044bNlnCyc04lhCsrxbfyXUQ="
+                    alt="Food Item 5">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
